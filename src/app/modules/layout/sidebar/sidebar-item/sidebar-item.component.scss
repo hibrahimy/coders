@@ -1,0 +1,9 @@
+.sidebar-item-container:hover {
+  .sidebar-item-background {
+    width: 100%;
+  }
+}
+
+.sidebar-item-background {
+  @apply bg-gray-300;
+}

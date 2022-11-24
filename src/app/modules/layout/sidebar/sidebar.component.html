@@ -1,0 +1,7 @@
+<div
+  class="bfr-sidebar min-h-full bg-white border-l-4 border-r-2"
+  [@sidebarTrigger]="state$ | async"
+>
+  <bfr-sidebar-item [item]="item" *ngFor="let item of sidebarItems">
+  </bfr-sidebar-item>
+</div>

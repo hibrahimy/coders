@@ -1,0 +1,21 @@
+<ng-container *ngIf="user$ | async; else content">
+  <div class="flex flex-col h-screen">
+    <bfr-header></bfr-header>
+    <div class="flex layout-height">
+      <div class="h-full overflow-y-auto">
+        <bfr-sidebar></bfr-sidebar>
+      </div>
+      <div class="flex flex-col grow h-full">
+        <div class="h-full grow p-4 overflow-y-auto">
+          <ng-container *ngTemplateOutlet="content"></ng-container>
+        </div>
+
+        <bfr-footer></bfr-footer>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #content>
+  <ng-content></ng-content>
+</ng-template>

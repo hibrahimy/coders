@@ -1,0 +1,224 @@
+<h2 mat-dialog-title>New Transaction</h2>
+<form
+  [formGroup]="form"
+  mat-dialog-content
+  class="flex flex-col space-y-4 h-full overflow-y-auto max-h-[70vh] !py-5"
+>
+  <div class="grid grid-cols-2 gap-8">
+    <mat-form-field class="w-full" appearance="outline">
+      <mat-label>Transaction type</mat-label>
+      <mat-select formControlName="transactionType">
+        <mat-option [value]="0">0</mat-option>
+        <mat-option [value]="1">1</mat-option>
+        <mat-option [value]="2">2</mat-option>
+      </mat-select>
+
+      <mat-error *ngIf="f['transactionType'].hasError('required')">
+        Transaction type is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="w-full" appearance="outline">
+      <mat-label>Transaction date</mat-label>
+      <input
+        matInput
+        [matDatepicker]="transactionDatePicker"
+        formControlName="transactionDate"
+      />
+      <mat-hint>DD/MM/YYYY</mat-hint>
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="transactionDatePicker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #transactionDatePicker>
+        <mat-datepicker-actions>
+          <button mat-button matDatepickerCancel>Cancel</button>
+          <button mat-raised-button color="primary" matDatepickerApply>
+            Apply
+          </button>
+        </mat-datepicker-actions>
+      </mat-datepicker>
+
+      <mat-error *ngIf="f['transactionDate'].hasError('matDateInvalid')"
+        >Invalid transaction date</mat-error
+      >
+      <mat-error *ngIf="f['transactionDate'].hasError('required')"
+        >Transaction date is required</mat-error
+      >
+    </mat-form-field>
+  </div>
+
+  <div class="grid grid-cols-2 gap-8">
+    <mat-form-field class="w-full" appearance="outline">
+      <mat-label>PV date</mat-label>
+      <input matInput [matDatepicker]="pvDatePicker" formControlName="pvDate" />
+      <mat-hint>DD/MM/YYYY</mat-hint>
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="pvDatePicker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #pvDatePicker>
+        <mat-datepicker-actions>
+          <button mat-button matDatepickerCancel>Cancel</button>
+          <button mat-raised-button color="primary" matDatepickerApply>
+            Apply
+          </button>
+        </mat-datepicker-actions>
+      </mat-datepicker>
+
+      <mat-error *ngIf="f['pvDate'].hasError('matDateInvalid')"
+        >Invalid PV date</mat-error
+      >
+      <mat-error *ngIf="f['pvDate'].hasError('required')"
+        >PV date is required</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field class="w-full" appearance="outline">
+      <mat-label>Budget line</mat-label>
+      <mat-select formControlName="budgetLine">
+        <mat-option [value]="0">0</mat-option>
+        <mat-option [value]="1">1</mat-option>
+      </mat-select>
+
+      <mat-error *ngIf="f['budgetLine'].hasError('required')"
+        >Budget line is required</mat-error
+      >
+    </mat-form-field>
+  </div>
+
+  <div class="grid grid-cols-2 gap-8">
+    <mat-form-field class="w-full" appearance="outline">
+      <mat-label>Payment date</mat-label>
+      <input
+        matInput
+        [matDatepicker]="paymentDatePicker"
+        formControlName="paymentDate"
+      />
+      <mat-hint>DD/MM/YYYY</mat-hint>
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="paymentDatePicker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #paymentDatePicker>
+        <mat-datepicker-actions>
+          <button mat-button matDatepickerCancel>Cancel</button>
+          <button mat-raised-button color="primary" matDatepickerApply>
+            Apply
+          </button>
+        </mat-datepicker-actions>
+      </mat-datepicker>
+
+      <mat-error *ngIf="f['paymentDate'].hasError('matDateInvalid')"
+        >Invalid PV date</mat-error
+      >
+      <mat-error *ngIf="f['paymentDate'].hasError('required')"
+        >PV date is required</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field class="w-full" appearance="outline">
+      <mat-label>Payment method</mat-label>
+      <mat-select formControlName="paymentMethod">
+        <mat-option [value]="0">0</mat-option>
+        <mat-option [value]="1">1</mat-option>
+      </mat-select>
+
+      <mat-error *ngIf="f['paymentMethod'].hasError('required')"
+        >Payment method is required</mat-error
+      >
+    </mat-form-field>
+  </div>
+
+  <div class="grid-grid-cols-2 gap-8">
+    <mat-form-field class="w-full" appearance="outline">
+      <mat-label>Balance in grant currency</mat-label>
+      <input
+        matInput
+        formControlName="balanceInGrantCurrency"
+        type="number"
+        min="0"
+      />
+
+      <mat-error *ngIf="f['balanceInGrantCurrency'].hasError('required')"
+        >Balance in grant currency is required</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field class="w-full" appearance="outline">
+      <mat-label>Balance in local currency</mat-label>
+      <input
+        matInput
+        formControlName="balanceInLocalCurrency"
+        type="number"
+        min="0"
+      />
+
+      <mat-error *ngIf="f['balanceInLocalCurrency'].hasError('required')"
+        >Balance in local currency is required</mat-error
+      >
+    </mat-form-field>
+  </div>
+
+  <mat-form-field class="w-full" appearance="outline">
+    <mat-label>Description</mat-label>
+    <textarea matInput formControlName="description"></textarea>
+
+    <mat-error *ngIf="f['description'].hasError('required')"
+      >Description is required</mat-error
+    >
+  </mat-form-field>
+
+  <div class="grid grid-cols-2 gap-8">
+    <mat-form-field class="w-full" appearance="outline">
+      <mat-label>Employee code</mat-label>
+      <mat-select formControlName="employeeCodeId">
+        <mat-option
+          *ngFor="let code of advanceCodes$ | async"
+          [value]="code.id"
+        >
+          {{ code.code }}
+        </mat-option>
+      </mat-select>
+
+      <mat-error *ngIf="f['employeeCodeId'].hasError('required')"
+        >Employee code is required</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field class="w-full" appearance="outline">
+      <mat-label>Advance code</mat-label>
+      <mat-select formControlName="advanceCodeId">
+        <mat-option
+          *ngFor="let code of advanceCodes$ | async"
+          [value]="code.id"
+        >
+          {{ code.code }}
+        </mat-option>
+      </mat-select>
+
+      <mat-error *ngIf="f['advanceCodeId'].hasError('required')"
+        >Advance code is required</mat-error
+      >
+    </mat-form-field>
+  </div>
+
+  <p class="text-red-500 my-8 text-center">{{ errorMessage }}</p>
+</form>
+
+<mat-dialog-actions [align]="'end'" class="flex space-x-8 items-center justify-end">
+  <button mat-flat-button matDialogClose>Cancel</button>
+  <button
+    mat-flat-button
+    color="primary"
+    (click)="onAdd()"
+    [disabled]="loading || form.invalid"
+  >
+    <mat-spinner
+      *ngIf="loading"
+      [diameter]="25"
+      class="my-1 mx-auto"
+    ></mat-spinner>
+    <span *ngIf="!loading">Add</span>
+  </button>
+</mat-dialog-actions>

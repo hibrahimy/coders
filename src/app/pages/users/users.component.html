@@ -1,0 +1,26 @@
+<div class="flex flex-col">
+  <p class="bfr-page-header">Users</p>
+
+  <mat-card appearance="outlined">
+    <mat-card-content class="flex flex-col">
+      <div class="flex flex-col flex-wrap md:flex-row items-center justify-end md:space-x-8 space-y-6 md:space-y-0">
+        <mat-form-field class="ff-no-padding h-full w-full md:w-fit" appearance="outline">
+          <mat-label>Select</mat-label>
+          <mat-select [value]="'all'">
+            <mat-option value="all">Select all</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="ff-no-padding w-full md:w-fit lg:w-80">
+          <mat-label>Search by name or email</mat-label>
+          <input matInput />
+        </mat-form-field>
+
+        <button mat-flat-button color="primary" class="!mt-2 md:!mt-0 lg:!ml-24 w-full md:w-fit">
+          <mat-icon> add </mat-icon>
+          ADD NEW USER
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

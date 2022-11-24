@@ -1,0 +1,76 @@
+<div class="flex items-center w-screen h-screen">
+  <div class="hidden md:flex w-1/2 flex-col h-full relative">
+    <div class="grow">
+      <img class="object-cover h-full w-full" src="/assets/auth-background.png" alt="Auth background" />
+    </div>
+
+    <div class="absolute bottom-0 left-0 w-full">
+      <ng-container *ngTemplateOutlet="copyright"> </ng-container>
+    </div>
+  </div>
+  <div class="w-full md:w-1/2 flex flex-col items-center h-screen">
+    <div class="flex flex-col items-center justify-center grow w-11/12 md:w-[360px]">
+      <form [formGroup]="form" class="flex flex-col w-full">
+        <h1 class="!font-medium !text-3xl !mb-0" i18n="Welcome">
+          Welcome back!
+        </h1>
+        <p class="text-gray-400 !mb-4" i18n="Login prompt">Login to continue</p>
+
+        <mat-form-field appearance="outline" [hideRequiredMarker]="true">
+          <mat-label i18n="Username">Username</mat-label>
+
+          <input matInput formControlName="username" />
+
+          <mat-error *ngIf="f['username'].hasError('required')">
+            Username is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" [hideRequiredMarker]="true">
+          <mat-label i18n="Password">Password</mat-label>
+
+          <input matInput [type]="passwordVisibile ? 'text' : 'password'" formControlName="password" />
+
+          <button mat-icon-button matSuffix (click)="togglePasswordVisiblity()" type="button">
+            <mat-icon> visibility </mat-icon>
+          </button>
+
+          <mat-error *ngIf="f['password'].hasError('required')">
+            Password is required
+          </mat-error>
+        </mat-form-field>
+
+        <div class="flex items-center justify-between mb-2">
+          <mat-checkbox class="font-medium" formControlName="remember" i18n="Remember me">Remember me</mat-checkbox>
+
+          <a class="font-medium" [routerLink]="[]" i18n="Forgot password">
+            Forgot password?
+          </a>
+        </div>
+
+        <button class="w-full !py-2" mat-flat-button color="primary" (click)="onLogin()" [disabled]="form.invalid"
+          i18n="CONTINUE">
+          CONTINUE
+        </button>
+      </form>
+    </div>
+
+    <div class="block md:hidden w-full">
+      <ng-container *ngTemplateOutlet="copyright"> </ng-container>
+    </div>
+  </div>
+</div>
+
+<ng-template #copyright>
+  <div class="flex items-center h-14">
+    <div class="bg-white h-full flex items-center justify-center px-6">
+      <img src="/assets/logo.png" alt="Logo" />
+    </div>
+
+    <div class="bg-orange text-end h-full flex items-center grow px-6">
+      <span class="w-full text-white" i18n="Copyright text|Footer GFA copyright text">
+        @ 2023 - Powered by GFA B.I.S
+      </span>
+    </div>
+  </div>
+</ng-template>

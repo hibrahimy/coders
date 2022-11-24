@@ -1,0 +1,68 @@
+<div
+  class="relative footer-shadow bg-white flex flex-col"
+  *ngIf="(show$ | async) && (data | async) as data"
+  @footerTrigger
+>
+  <!-- Expand button -->
+  <button
+    mat-icon-button
+    class="expand-btn-shadow !absolute top-0 right-10 p-6 !bg-white -translate-y-1/2 z-10"
+    (click)="onToggleExpand()"
+  >
+    <mat-icon>
+      {{ (expanded$ | async) ? "expand_more" : "expand_less" }}
+    </mat-icon>
+  </button>
+
+  <div class="flex items-center justify-between pr-40 py-1 pl-8 space-x-2 bg-gray-100">
+    <div class="flex items-center space-x-6">
+      <mat-icon class="text-green-600"> lock_open </mat-icon>
+      <mat-icon> dynamic_feed </mat-icon>
+    </div>
+
+    <bfr-footer-item
+      [item]="item"
+      *ngFor="let item of data.frontItems"
+    ></bfr-footer-item>
+
+    <h2 class="!my-0">{{ data.title }}</h2>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <div class="py-1 px-8" *ngIf="expanded$ | async" @footerTrigger>
+    <div class="flex items-center justify-between mt-4 mb-2 space-x-2">
+      <bfr-footer-item
+        [item]="item"
+        *ngFor="let item of data.subItems"
+      ></bfr-footer-item>
+
+      <div class="flex items-center">
+        <button mat-icon-button *ngIf="data.onEdit" (click)="data.onEdit()">
+          <mat-icon class="text-gray-500">edit</mat-icon>
+        </button>
+        <button
+          mat-icon-button
+          *ngIf="data.menuItems && data.menuItems.length"
+          [matMenuTriggerFor]="menu"
+        >
+          <mat-icon class="text-gray-500">menu</mat-icon>
+        </button>
+
+        <!-- Menu -->
+        <mat-menu #menu="matMenu">
+          <button
+            mat-menu-item
+            (click)="item.onClick()"
+            *ngFor="let item of data.menuItems"
+          >
+            <mat-icon [ngClass]="item.color" *ngIf="item.icon">{{
+              item.icon
+            }}</mat-icon>
+            <span [ngClass]="item.color">{{ item.label }}</span>
+          </button>
+        </mat-menu>
+      </div>
+    </div>
+  </div>
+</div>

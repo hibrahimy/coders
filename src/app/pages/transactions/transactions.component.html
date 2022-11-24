@@ -1,0 +1,263 @@
+<ng-container *ngIf="!states.fetchingDossier; else loadingDossierTemplate">
+  <mat-card appearance="outlined">
+    <mat-card-content class="flex flex-col space-y-4 !px-8" #card>
+      <div
+        class="flex flex-col flex-wrap md:flex-row items-center justify-between md:space-x-8 space-y-6 md:space-y-0"
+      >
+        <mat-form-field
+          appearance="outline"
+          class="ff-no-padding w-full md:w-fit lg:w-80"
+        >
+          <mat-label>Search transactions</mat-label>
+          <input matInput [formControl]="filterControl" />
+        </mat-form-field>
+
+        <div class="flex items-center space-x-4">
+          <button mat-icon-button class="ml-auto" (click)="onToggleDisplay()">
+            <mat-icon>{{ toggleDisplayIcon }}</mat-icon>
+          </button>
+
+          <button
+            mat-flat-button
+            color="primary"
+            class="!mt-2 md:!mt-0 w-full md:w-fit"
+            (click)="onNewTransaction()"
+          >
+            <mat-icon> add </mat-icon>
+            NEW TRANSACTIONS
+          </button>
+        </div>
+      </div>
+
+      <section class="overflow-x-auto" [style.maxWidth.px]="tableMaxWidth">
+        <table
+          [ngClass]="isDisplayAllColumns ? 'w-max' : 'w-full'"
+          mat-table
+          matSort
+          [dataSource]="dataSource"
+        >
+          <!-- Transaction date -->
+          <ng-container matColumnDef="transactionDate">
+            <th
+              class="min-w-max !px-4"
+              mat-header-cell
+              *matHeaderCellDef
+              mat-sort-header
+            >
+              TRANSACTION DATE
+            </th>
+            <td class="min-w-max !px-4" mat-cell *matCellDef="let row">
+              {{ row.transactionDate | date: "dd.MM.yyyy" }}
+            </td>
+          </ng-container>
+
+          <!-- Transaction type -->
+          <ng-container matColumnDef="transactionType">
+            <th class="min-w-max !px-4" mat-header-cell *matHeaderCellDef>
+              TRANSACTION TYPE
+            </th>
+            <td class="min-w-max !px-4" mat-cell *matCellDef="let row">
+              {{ row.transactionType }}
+            </td>
+          </ng-container>
+
+          <!-- Payment date -->
+          <ng-container matColumnDef="paymentDate">
+            <th
+              class="min-w-max !px-4"
+              mat-header-cell
+              *matHeaderCellDef
+              mat-sort-header
+            >
+              PAYMENT DATE
+            </th>
+            <td class="min-w-max !px-4" mat-cell *matCellDef="let row">
+              {{ row.paymentDate | date: "dd.MM.yyyy" }}
+            </td>
+          </ng-container>
+
+          <!-- Payment method -->
+          <ng-container matColumnDef="paymentMethod">
+            <th class="min-w-max !px-4" mat-header-cell *matHeaderCellDef>
+              PAYMENT METHOD
+            </th>
+            <td class="min-w-max !px-4" mat-cell *matCellDef="let row">
+              {{ row.paymentMethod }}
+            </td>
+          </ng-container>
+
+          <!-- Total -->
+          <ng-container matColumnDef="balanceInGrantCurrency">
+            <th
+              class="min-w-max !px-4"
+              mat-header-cell
+              *matHeaderCellDef
+              mat-sort-header
+            >
+              BALANCE (USD)
+            </th>
+            <td class="min-w-max !px-4" mat-cell *matCellDef="let row">
+              {{ row.balanceInGrantCurrency }}
+            </td>
+          </ng-container>
+
+          <!-- Total local currency -->
+          <ng-container matColumnDef="balanceInLocalCurrency">
+            <th
+              class="min-w-max !px-4"
+              mat-header-cell
+              *matHeaderCellDef
+              mat-sort-header
+            >
+              BALANCE IN LOCAL (USD)
+            </th>
+            <td class="min-w-max !px-4" mat-cell *matCellDef="let row">
+              {{ row.balanceInLocalCurrency }}
+            </td>
+          </ng-container>
+
+          <!-- Description -->
+          <ng-container matColumnDef="description">
+            <th class="min-w-max !px-4" mat-header-cell *matHeaderCellDef>
+              DESCRIPTION
+            </th>
+            <td class="min-w-max !px-4" mat-cell *matCellDef="let row">
+              {{ row.description }}
+            </td>
+          </ng-container>
+
+          <!-- PV Date -->
+          <ng-container matColumnDef="pvDate">
+            <th
+              class="min-w-max !px-4"
+              mat-header-cell
+              *matHeaderCellDef
+              mat-sort-header
+            >
+              PV DATE
+            </th>
+            <td class="min-w-max !px-4" mat-cell *matCellDef="let row">
+              {{ row.pvDate | date: "dd.MM.yyyy" }}
+            </td>
+          </ng-container>
+
+          <!-- Budget Line -->
+          <ng-container matColumnDef="budgetLine">
+            <th class="min-w-max !px-4" mat-header-cell *matHeaderCellDef>
+              BUDGET LINE
+            </th>
+            <td class="min-w-max !px-4" mat-cell *matCellDef="let row">
+              {{ row.budgetLine }}
+            </td>
+          </ng-container>
+
+          <!-- Employee Code -->
+          <ng-container matColumnDef="employeeCode">
+            <th class="min-w-max !px-4" mat-header-cell *matHeaderCellDef>
+              EMPLOYEE CODE
+            </th>
+            <td class="min-w-max !px-4" mat-cell *matCellDef="let row">
+              {{ row.employeeCode?.code }}
+            </td>
+          </ng-container>
+
+          <!-- Advance Code -->
+          <ng-container matColumnDef="advanceCode">
+            <th class="min-w-max !px-4" mat-header-cell *matHeaderCellDef>
+              ADVANCE CODE
+            </th>
+            <td class="min-w-max !px-4" mat-cell *matCellDef="let row">
+              {{ row.advanceCode?.code }}
+            </td>
+          </ng-container>
+
+          <!-- Options -->
+          <ng-container matColumnDef="options" [stickyEnd]="true">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td
+              class="!overflow-visible"
+              mat-cell
+              *matCellDef="let row; let index = index"
+            >
+              <div
+                class="absolute right-0 top-1/2 -translate-y-1/2 flex space-x-1 z-10 mr-2 bg-gray-200 transition-all ease-in-out duration-50 w-max"
+                *ngIf="hoveringIndex === index"
+                @optionsTrigger
+                @optionsTrigger
+              >
+                <button
+                  mat-icon-button
+                  class="text-sm opacity-50 hover:opacity-100 transition-all ease-in-out hover:bg-gray-300"
+                  (click)="onEditTransaction(row)"
+                >
+                  <mat-icon>edit</mat-icon>
+                </button>
+                <button
+                  mat-icon-button
+                  class="text-sm opacity-50 hover:opacity-100 transition-all ease-in-out hover:bg-gray-300"
+                  [matMenuTriggerFor]="menu"
+                  (menuOpened)="onMenuOpened(index)"
+                  (menuClosed)="onMenuClosed()"
+                >
+                  <mat-icon>menu</mat-icon>
+                </button>
+
+                <!-- Menu -->
+                <mat-menu #menu="matMenu">
+                  <button mat-menu-item (click)="onDeleteTransaction(row)">
+                    <mat-icon class="!text-red-500">delete</mat-icon>
+                    <span class="!text-red-500">Delete</span>
+                  </button>
+                </mat-menu>
+              </div>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr
+            class="cursor-pointer relative transition-all ease-in-out"
+            mat-row
+            *matRowDef="let row; columns: displayedColumns; let index = index"
+            (mouseenter)="onMouseEnterRow(index)"
+            (mouseleave)="onMouseLeaveRow()"
+            [ngClass]="{ '!bg-gray-200': hoveringIndex === index }"
+          ></tr>
+
+          <tr class="mat-row" *matNoDataRow>
+            <td
+              class="mat-cell text-center"
+              [attr.colspan]="displayedColumns.length"
+            >
+              <p *ngIf="!states.fetchingTransactions && !errorMessage.length">
+                No data{{
+                  isFiltering
+                    ? ' matching the filter "' + filterControl.value + '"'
+                    : ""
+                }}
+              </p>
+
+              <mat-spinner
+                class="mx-auto my-4"
+                [diameter]="40"
+                *ngIf="states.fetchingTransactions"
+              ></mat-spinner>
+
+              <p
+                class="text-red-500"
+                *ngIf="!states.fetchingTransactions && errorMessage.length"
+              >
+                {{ errorMessage }}
+              </p>
+            </td>
+          </tr>
+        </table>
+      </section>
+
+      <mat-paginator [pageSizeOptions]="[10, 25, 100]"></mat-paginator>
+    </mat-card-content>
+  </mat-card>
+</ng-container>
+
+<ng-template #loadingDossierTemplate>
+  <mat-spinner class="mx-auto mt-10"></mat-spinner>
+</ng-template>

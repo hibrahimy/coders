@@ -1,0 +1,50 @@
+<h2 mat-dialog-title>Edit Advance Code</h2>
+<form
+  [formGroup]="form"
+  mat-dialog-content
+  class="flex flex-col space-y-4 h-full overflow-y-auto max-h-[70vh] !py-5"
+>
+  <ng-container *ngIf="!states.fetching && advanceCode; else loadingTemplate">
+    <div class="grid grid-cols-2 gap-8">
+      <mat-form-field class="w-full" appearance="outline">
+        <mat-label>Analysis Code</mat-label>
+        <input matInput formControlName="code" />
+      </mat-form-field>
+    </div>
+
+    <mat-form-field class="w-full" appearance="outline">
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="description"></textarea>
+
+      <mat-error *ngIf="f['description'].hasError('required')"
+        >Description is required</mat-error
+      >
+    </mat-form-field>
+  </ng-container>
+
+  <p class="text-red-500 my-8 text-center">{{ errorMessage }}</p>
+</form>
+<mat-dialog-actions
+  [align]="'end'"
+  class="flex space-x-8 items-center justify-end"
+>
+  <button mat-flat-button matDialogClose>Cancel</button>
+  <button
+    mat-flat-button
+    color="primary"
+    (click)="onSave()"
+    [disabled]="states.saving || form.invalid"
+    *ngIf="!states.fetching && advanceCode"
+  >
+    <mat-spinner
+      *ngIf="states.saving"
+      [diameter]="25"
+      class="my-1 mx-auto"
+    ></mat-spinner>
+    <span *ngIf="!states.saving">Save</span>
+  </button>
+</mat-dialog-actions>
+
+<ng-template #loadingTemplate>
+  <mat-spinner class="mx-auto my-8" *ngIf="states.fetching"></mat-spinner>
+</ng-template>

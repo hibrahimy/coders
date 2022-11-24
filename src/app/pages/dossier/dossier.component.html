@@ -1,0 +1,351 @@
+<div class="flex flex-col">
+  <p class="bfr-page-header">Dossier</p>
+
+  <mat-card appearance="outlined">
+    <mat-card-content class="flex flex-col space-y-4 !px-8" #card>
+      <div
+        class="flex flex-col flex-wrap md:flex-row items-center justify-between md:space-x-8 space-y-6 md:space-y-0 w-full"
+      >
+        <mat-form-field
+          appearance="outline"
+          class="ff-no-padding w-full md:w-fit lg:w-80"
+        >
+          <mat-label i18n >Search dossier</mat-label>
+          <input matInput [formControl]="filterControl" />
+        </mat-form-field>
+
+        <div class="flex items-center space-x-4">
+          <button mat-icon-button class="ml-auto" (click)="onToggleDisplay()">
+            <mat-icon>{{ toggleDisplayIcon }}</mat-icon>
+          </button>
+
+          <button i18n 
+            mat-flat-button
+            color="primary"
+            class="!mt-2 md:!mt-0 w-full md:w-fit"
+            (click)="onNewDossier()"
+          >
+            <mat-icon> add </mat-icon>
+            NEW DOSSIER
+          </button>
+        </div>
+      </div>
+
+      <section class="overflow-x-auto" [style.maxWidth.px]="tableMaxWidth">
+        <table
+          [ngClass]="isDisplayAllColumns ? 'w-max' : 'w-full'"
+          mat-table
+          matSort
+          [dataSource]="dataSource"
+        >
+          <!-- Date -->
+          <ng-container matColumnDef="entryDate">
+            <th i18n
+              class="min-w-max !px-4"
+              mat-header-cell
+              *matHeaderCellDef
+              mat-sort-header
+            >
+              DATE
+            </th>
+            <td
+              class="min-w-max !px-4"
+              mat-cell
+              *matCellDef="let row"
+              [routerLink]="['/', 'transactions', row.id]"
+            >
+              {{ row.entryDate | date: "dd.MM.yyyy" }}
+            </td>
+          </ng-container>
+
+          <!-- Application NR -->
+          <ng-container matColumnDef="applicationNr">
+            <th i18n 
+              class="min-w-max !px-4"
+              mat-header-cell
+              *matHeaderCellDef
+              mat-sort-header
+            >
+              APPLICATION NR
+            </th>
+            <td
+              class="min-w-max !px-4"
+              mat-cell
+              *matCellDef="let row"
+              [routerLink]="['/', 'transactions', row.id]"
+            >
+              {{ row.requestNumber }}
+            </td>
+          </ng-container>
+
+          <!-- Source of Funding -->
+          <ng-container matColumnDef="sourceFunding">
+            <th i18n class="min-w-max !px-4" mat-header-cell *matHeaderCellDef>
+              SOURCE OF FUNDING
+            </th>
+            <td
+              class="min-w-max !px-4"
+              mat-cell
+              *matCellDef="let row"
+              [routerLink]="['/', 'transactions', row.id]"
+            >
+              {{ row.sourceFunding }}
+            </td>
+          </ng-container>
+
+          <!-- Status -->
+          <ng-container matColumnDef="status">
+            <th i18n class="min-w-max !px-4" mat-header-cell *matHeaderCellDef>
+              STATUS
+            </th>
+            <td
+              class="min-w-max !px-4"
+              mat-cell
+              *matCellDef="let row"
+              [routerLink]="['/', 'transactions', row.id]"
+            >
+              {{ DossierStatusEnum[row.status] }}
+            </td>
+          </ng-container>
+
+          <!-- Reference Transaction -->
+          <ng-container matColumnDef="referenceTransaction">
+            <th i18n class="min-w-max !px-4" mat-header-cell *matHeaderCellDef>
+              REFERENCE TRANSACTION
+            </th>
+            <td
+              class="min-w-max !px-4"
+              mat-cell
+              *matCellDef="let row"
+              [routerLink]="['/', 'transactions', row.id]"
+            >
+              {{ row.transactionReference }}
+            </td>
+          </ng-container>
+
+          <!-- Total -->
+          <ng-container matColumnDef="total">
+            <th i18n 
+              class="min-w-max !px-4"
+              mat-header-cell
+              *matHeaderCellDef
+              mat-sort-header
+            >
+              TOTAL (USD)
+            </th>
+            <td
+              class="min-w-max !px-4"
+              mat-cell
+              *matCellDef="let row"
+              [routerLink]="['/', 'transactions', row.id]"
+            >
+              {{ row.amountInGrantCurrency }}
+            </td>
+          </ng-container>
+
+          <!-- Total in local currency -->
+          <ng-container matColumnDef="amountInLocalCurrency">
+            <th i18n 
+              class="min-w-max !px-4"
+              mat-header-cell
+              *matHeaderCellDef
+              mat-sort-header
+            >
+              TOTAL LOCAL (USD)
+            </th>
+            <td
+              class="min-w-max !px-4"
+              mat-cell
+              *matCellDef="let row"
+              [routerLink]="['/', 'transactions', row.id]"
+            >
+              {{ row.amountInLocalCurrency }}
+            </td>
+          </ng-container>
+
+          <!-- Timestamp -->
+          <ng-container matColumnDef="timestamp">
+            <th i18n 
+              class="min-w-max !px-4"
+              mat-header-cell
+              *matHeaderCellDef
+              mat-sort-header
+            >
+              TIMESTAMP
+            </th>
+            <td
+              class="min-w-max !px-4"
+              mat-cell
+              *matCellDef="let row"
+              [routerLink]="['/', 'transactions', row.id]"
+            >
+              {{ row.timestamp | date: "dd.MM.yyyy" }}
+            </td>
+          </ng-container>
+
+          <!-- Received date -->
+          <ng-container matColumnDef="receivedDate">
+            <th i18n 
+              class="min-w-max !px-4"
+              mat-header-cell
+              *matHeaderCellDef
+              mat-sort-header
+            >
+              RECEIVED DATE
+            </th>
+            <td
+              class="min-w-max !px-4"
+              mat-cell
+              *matCellDef="let row"
+              [routerLink]="['/', 'transactions', row.id]"
+            >
+              {{ row.receivedDate | date: "dd.MM.yyyy" }}
+            </td>
+          </ng-container>
+
+          <!-- Description -->
+          <ng-container matColumnDef="description">
+            <th i18n 
+              class="min-w-max !px-4"
+              mat-header-cell
+              *matHeaderCellDef
+              mat-sort-header
+            >
+              DESCRIPTION
+            </th>
+            <td
+              class="min-w-max !px-4"
+              mat-cell
+              *matCellDef="let row"
+              [routerLink]="['/', 'transactions', row.id]"
+            >
+              {{ row.description }}
+            </td>
+          </ng-container>
+
+          <!-- Status approval -->
+          <ng-container matColumnDef="statusApproval">
+            <th i18n  class="min-w-max !px-4" mat-header-cell *matHeaderCellDef>
+              STATUS APPROVAL
+            </th>
+            <td
+              class="min-w-max !px-4"
+              mat-cell
+              *matCellDef="let row"
+              [routerLink]="['/', 'transactions', row.id]"
+            >
+              {{ DossierStatusApprovalEnum[row.statusApproval] }}
+            </td>
+          </ng-container>
+
+          <!-- Status approval reason -->
+          <ng-container matColumnDef="statusApprovalReason">
+            <th i18n  class="min-w-max !px-4" mat-header-cell *matHeaderCellDef>
+              STATUS APPROVAL REASON
+            </th>
+            <td
+              class="min-w-max !px-4"
+              mat-cell
+              *matCellDef="let row"
+              [routerLink]="['/', 'transactions', row.id]"
+            >
+              {{ row.statusApprovalReason }}
+            </td>
+          </ng-container>
+
+          <!-- Status approved delay -->
+          <ng-container matColumnDef="statusApprovedDelay">
+            <th i18n class="min-w-max !px-4" mat-header-cell *matHeaderCellDef>
+              APPROVED DELAY
+            </th>
+            <td
+              class="min-w-max !px-4"
+              mat-cell
+              *matCellDef="let row"
+              [routerLink]="['/', 'transactions', row.id]"
+            >
+              {{ row.statusApprovedDelay }}
+            </td>
+          </ng-container>
+
+          <!-- Options -->
+          <ng-container matColumnDef="options" [stickyEnd]="true">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td class="!overflow-visible" mat-cell *matCellDef="let row; let index = index">
+              <div
+                class="absolute right-0 top-1/2 -translate-y-1/2 flex space-x-1 z-10 mr-2 bg-gray-200 transition-all ease-in-out duration-50 w-max"
+                *ngIf="hoveringIndex === index"
+                @optionsTrigger
+              >
+                <button
+                  mat-icon-button
+                  class="text-sm opacity-50 hover:opacity-100 transition-all ease-in-out hover:bg-gray-300"
+                  (click)="onEditDossier(row)"
+                >
+                  <mat-icon>edit</mat-icon>
+                </button>
+                <button 
+                  mat-icon-button
+                  class="text-sm opacity-50 hover:opacity-100 transition-all ease-in-out hover:bg-gray-300"
+                  [matMenuTriggerFor]="menu"
+                  (menuOpened)="onMenuOpened(index)"
+                  (menuClosed)="onMenuClosed()"
+                >
+                  <mat-icon>menu</mat-icon>
+                </button>
+
+                <!-- Menu -->
+                <mat-menu #menu="matMenu">
+                  <button
+                    mat-menu-item
+                    (click)="onDeleteDossier(row)"
+                  >
+                    <mat-icon class="!text-red-500">delete</mat-icon>
+                    <span i18n class="!text-red-500">Delete</span>
+                  </button>
+                </mat-menu>
+              </div>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr
+            class="cursor-pointer relative transition-all ease-in-out"
+            mat-row
+            *matRowDef="let row; columns: displayedColumns; let index = index"
+            (mouseenter)="onMouseEnterRow(index)"
+            (mouseleave)="onMouseLeaveRow()"
+            [ngClass]="{ '!bg-gray-200': hoveringIndex === index }"
+          ></tr>
+
+          <tr class="mat-row" *matNoDataRow>
+            <td
+              class="mat-cell text-center"
+              [attr.colspan]="displayedColumns.length"
+            >
+              <p i18n *ngIf="!loading && !errorMessage.length">
+                No data{{
+                  isFiltering
+                    ? ' matching the filter "' + filterControl.value + '"'
+                    : ""
+                }}
+              </p>
+
+              <mat-spinner
+                class="mx-auto my-4"
+                [diameter]="40"
+                *ngIf="loading"
+              ></mat-spinner>
+
+              <p class="text-red-500" *ngIf="!loading && errorMessage.length">
+                {{ errorMessage }}
+              </p>
+            </td>
+          </tr>
+        </table>
+      </section>
+
+      <mat-paginator [pageSizeOptions]="[10, 25, 100]"></mat-paginator>
+    </mat-card-content>
+  </mat-card>
+</div>

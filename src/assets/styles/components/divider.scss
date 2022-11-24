@@ -1,0 +1,5 @@
+@import "../imports.scss";
+
+.bfr-divider-vertical {
+  @apply h-full w-1 border-l-2 border-gray-300;
+}

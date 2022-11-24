@@ -1,0 +1,19 @@
+@import "../imports.scss";
+
+.bfr-input {
+  @apply p-4;
+
+  &.bfr-input-raised {
+    @apply border-b-2;
+  }
+
+  &.bfr-input-box {
+    @apply bg-gray-200;
+  }
+}
+
+.ff-no-padding {
+  .mat-mdc-form-field-subscript-wrapper {
+    height: 0px;
+  }
+}

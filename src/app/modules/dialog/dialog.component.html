@@ -1,0 +1,26 @@
+<h2 mat-dialog-title>{{ title }}</h2>
+<div mat-dialog-content>
+  <p *ngIf="!errorMessage.length">
+    {{ content }}
+  </p>
+
+  <p class="text-red-500 text-center my-8">{{ errorMessage }}</p>
+</div>
+
+<mat-dialog-actions [align]="'end'" class="flex justify-end space-x-8" >
+  <button mat-flat-button matDialogClose>{{ cancelLabel }}</button>
+  <button
+    mat-flat-button
+    [color]="confirmColor"
+    [disabled]="confirming"
+    (click)="onConfirm()"
+    *ngIf="!errorMessage.length"
+  >
+    <mat-spinner
+      *ngIf="confirming"
+      [diameter]="25"
+      class="my-1 mx-auto"
+    ></mat-spinner>
+    <span *ngIf="!confirming">{{ confirmLabel }}</span>
+  </button>
+</mat-dialog-actions>

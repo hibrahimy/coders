@@ -1,0 +1,139 @@
+<h2 i18n mat-dialog-title>Edit Dossier</h2>
+<form
+  [formGroup]="form"
+  mat-dialog-content
+  class="flex flex-col space-y-4 h-full overflow-y-auto max-h-[70vh] !py-5"
+>
+  <ng-container *ngIf="!states.fetching && dossier; else loadingTemplate">
+    <div class="grid grid-cols-2 gap-8">
+      <mat-form-field class="w-full" appearance="outline">
+        <mat-label i18n >Received date</mat-label>
+        <input
+          matInput
+          [matDatepicker]="receivedDate"
+          formControlName="receivedDate"
+          placeholder="Received date"
+        />
+        <mat-hint>DD/MM/YYYY</mat-hint>
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="receivedDate"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #receivedDate>
+          <mat-datepicker-actions>
+            <button i18n mat-button matDatepickerCancel>Cancel</button>
+            <button i18n mat-raised-button color="primary" matDatepickerApply>
+              Apply
+            </button>
+          </mat-datepicker-actions>
+        </mat-datepicker>
+
+        <mat-error i18n *ngIf="f['receivedDate'].hasError('matEndDateInvalid')"
+          >Invalid recevied date</mat-error
+        >
+        <mat-error i18n *ngIf="f['receivedDate'].hasError('required')"
+          >Recevied date is required</mat-error
+        >
+      </mat-form-field>
+
+      <mat-form-field class="w-full" appearance="outline">
+        <mat-label i18n >Status</mat-label>
+        <mat-select formControlName="status">
+          <mat-option
+            [value]="index"
+            *ngFor="let status of DOSSIER_STATUSES; let index = index"
+            >{{ status }}</mat-option
+          >
+        </mat-select>
+
+        <mat-error i18n *ngIf="f['status'].hasError('required')"
+          >Status is required</mat-error
+        >
+      </mat-form-field>
+    </div>
+
+    <div class="grid grid-cols-2 gap-8">
+      <mat-form-field class="w-full" appearance="outline">
+        <mat-label i18n >Request number</mat-label>
+        <input matInput formControlName="requestNumber" type="number" min="0" />
+
+        <mat-error i18n  *ngIf="f['requestNumber'].hasError('required')"
+          >Request number is required</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field class="w-full" appearance="outline">
+        <mat-label i18n >Transaction reference</mat-label>
+        <input matInput formControlName="transactionReference" />
+
+        <mat-error i18n *ngIf="f['transactionReference'].hasError('required')"
+          >Transaction reference is required</mat-error
+        >
+      </mat-form-field>
+    </div>
+
+    <div class="grid grid-cols-2 gap-8">
+      <mat-form-field class="w-full" appearance="outline">
+        <mat-label i18n >Amount in grant currency</mat-label>
+        <input
+          matInput
+          formControlName="amountInGrantCurrency"
+          type="number"
+          min="0"
+        />
+
+        <mat-error i18n  *ngIf="f['amountInGrantCurrency'].hasError('required')"
+          >Amount in grant currency is required</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field class="w-full" appearance="outline">
+        <mat-label i18n >Amount in local currency</mat-label>
+        <input
+          matInput
+          formControlName="amountInLocalCurrency"
+          type="number"
+          min="0"
+        />
+
+        <mat-error i18n  *ngIf="f['amountInLocalCurrency'].hasError('required')"
+          >Amount in local currency is required</mat-error
+        >
+      </mat-form-field>
+    </div>
+
+    <mat-form-field class="w-full" appearance="outline">
+      <mat-label i18n >Description</mat-label>
+      <textarea matInput formControlName="description"></textarea>
+
+      <mat-error i18n *ngIf="f['description'].hasError('required')"
+        >Description is required</mat-error
+      >
+    </mat-form-field>
+  </ng-container>
+
+  <p class="text-red-500 my-8 text-center">{{ errorMessage }}</p>
+</form>
+
+<mat-dialog-actions
+  [align]="'end'"
+  class="flex space-x-8 items-center justify-end"
+>
+  <button i18n mat-flat-button (click)="onCancel()">Cancel</button>
+  <button
+    mat-flat-button
+    color="primary"
+    (click)="onSave()"
+    [disabled]="states.saving || form.invalid"
+    *ngIf="!states.fetching && dossier"
+  >
+    <mat-spinner
+      *ngIf="states.saving"
+      [diameter]="25"
+      class="my-1 mx-auto"
+    ></mat-spinner>
+    <span i18n *ngIf="!states.saving">Save</span>
+  </button>
+</mat-dialog-actions>
+
+<ng-template #loadingTemplate>
+  <mat-spinner class="mx-auto my-8" *ngIf="states.fetching"></mat-spinner>
+</ng-template>

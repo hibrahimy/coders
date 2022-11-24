@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="6615505853667097597" datatype="html">
+        <source>Edit Dossier</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/dialog/edit-dossier/edit-dossier-dialog.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5712993892158935880" datatype="html">
+        <source>Received date</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/dialog/edit-dossier/edit-dossier-dialog.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/dialog/new-dossier/new-dossier-dialog.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2159130950882492111" datatype="html">
+        <source>Cancel</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/dialog/edit-dossier/edit-dossier-dialog.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/dialog/edit-dossier/edit-dossier-dialog.component.html</context>
+          <context context-type="linenumber">120</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/dialog/new-dossier/new-dossier-dialog.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/dialog/new-dossier/new-dossier-dialog.component.html</context>
+          <context context-type="linenumber">115</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4517691647545108767" datatype="html">
+        <source> Apply </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/dialog/edit-dossier/edit-dossier-dialog.component.html</context>
+          <context context-type="linenumber">25,27</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/dialog/new-dossier/new-dossier-dialog.component.html</context>
+          <context context-type="linenumber">24,26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9143428936293545596" datatype="html">
+        <source>Invalid recevied date</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/dialog/edit-dossier/edit-dossier-dialog.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/dialog/new-dossier/new-dossier-dialog.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="917722114383982664" datatype="html">
+        <source>Recevied date is required</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/dialog/edit-dossier/edit-dossier-dialog.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/dialog/new-dossier/new-dossier-dialog.component.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5611592591303869712" datatype="html">
+        <source>Status</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/dialog/edit-dossier/edit-dossier-dialog.component.html</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/dialog/new-dossier/new-dossier-dialog.component.html</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5701779805166837861" datatype="html">
+        <source>Status is required</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/dialog/edit-dossier/edit-dossier-dialog.component.html</context>
+          <context context-type="linenumber">50</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/dialog/new-dossier/new-dossier-dialog.component.html</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8013369399320928477" datatype="html">
+        <source>Request number</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/dialog/edit-dossier/edit-dossier-dialog.component.html</context>
+          <context context-type="linenumber">57</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/dialog/new-dossier/new-dossier-dialog.component.html</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6715102188245627758" datatype="html">
+        <source>Request number is required</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/dialog/edit-dossier/edit-dossier-dialog.component.html</context>
+          <context context-type="linenumber">61</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/dialog/new-dossier/new-dossier-dialog.component.html</context>
+          <context context-type="linenumber">60</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2683587915361950977" datatype="html">
+        <source>Transaction reference</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/dialog/edit-dossier/edit-dossier-dialog.component.html</context>
+          <context context-type="linenumber">65</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/dialog/new-dossier/new-dossier-dialog.component.html</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="767569635548163387" datatype="html">
+        <source>Transaction reference is required</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/dialog/edit-dossier/edit-dossier-dialog.component.html</context>
+          <context context-type="linenumber">69</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/dialog/new-dossier/new-dossier-dialog.component.html</context>
+          <context context-type="linenumber">68</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="447300142819374255" datatype="html">
+        <source>Amount in grant currency</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/dialog/edit-dossier/edit-dossier-dialog.component.html</context>
+          <context context-type="linenumber">76</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/dialog/new-dossier/new-dossier-dialog.component.html</context>
+          <context context-type="linenumber">75</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9045189442588219819" datatype="html">
+        <source>Amount in grant currency is required</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/dialog/edit-dossier/edit-dossier-dialog.component.html</context>
+          <context context-type="linenumber">85</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/dialog/new-dossier/new-dossier-dialog.component.html</context>
+          <context context-type="linenumber">84</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6605105085567644877" datatype="html">
+        <source>Amount in local currency</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/dialog/edit-dossier/edit-dossier-dialog.component.html</context>
+          <context context-type="linenumber">89</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/dialog/new-dossier/new-dossier-dialog.component.html</context>
+          <context context-type="linenumber">88</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8848168962272206299" datatype="html">
+        <source>Amount in local currency is required</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/dialog/edit-dossier/edit-dossier-dialog.component.html</context>
+          <context context-type="linenumber">98</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/dialog/new-dossier/new-dossier-dialog.component.html</context>
+          <context context-type="linenumber">97</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4902817035128594900" datatype="html">
+        <source>Description</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/dialog/edit-dossier/edit-dossier-dialog.component.html</context>
+          <context context-type="linenumber">104</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/dialog/new-dossier/new-dossier-dialog.component.html</context>
+          <context context-type="linenumber">103</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6240684629381435026" datatype="html">
+        <source>Description is required</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/dialog/edit-dossier/edit-dossier-dialog.component.html</context>
+          <context context-type="linenumber">108</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/dialog/new-dossier/new-dossier-dialog.component.html</context>
+          <context context-type="linenumber">107</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3768927257183755959" datatype="html">
+        <source>Save</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/dialog/edit-dossier/edit-dossier-dialog.component.html</context>
+          <context context-type="linenumber">133</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4663149452152168998" datatype="html">
+        <source>New Dossier</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/dialog/new-dossier/new-dossier-dialog.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3249513483374643425" datatype="html">
+        <source>Add</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/dialog/new-dossier/new-dossier-dialog.component.html</context>
+          <context context-type="linenumber">127</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2611475427610660053" datatype="html">
+        <source>Transactions</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/layout.service.ts</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8917911254278029230" datatype="html">
+        <source>Dossier</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/layout.service.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5258437709909810702" datatype="html">
+        <source>Advance Justification</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/layout.service.ts</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2207319942974833572" datatype="html">
+        <source>Reconciling Items</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/layout.service.ts</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5446130952787522978" datatype="html">
+        <source>Codes</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/layout.service.ts</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9121480045715169991" datatype="html">
+        <source>Advance code</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/layout.service.ts</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8409229557456481853" datatype="html">
+        <source>Employee (T9)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/layout.service.ts</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6885844978916799621" datatype="html">
+        <source>Budget</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/layout.service.ts</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1868606282505332204" datatype="html">
+        <source>Reports</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/layout.service.ts</context>
+          <context context-type="linenumber">53</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8968658188667086997" datatype="html">
+        <source>Account Statements</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/layout.service.ts</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6445105530559889937" datatype="html">
+        <source>Trackers</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/layout.service.ts</context>
+          <context context-type="linenumber">60</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6570363013146073520" datatype="html">
+        <source>Dashboard</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/layout/layout.service.ts</context>
+          <context context-type="linenumber">81</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8728192596061331511" datatype="html">
+        <source> Welcome back! </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/auth/login.component.html</context>
+          <context context-type="linenumber">14,16</context>
+        </context-group>
+        <note priority="1" from="description">Welcome</note>
+      </trans-unit>
+      <trans-unit id="4202674275741816517" datatype="html">
+        <source>Login to continue</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/auth/login.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+        <note priority="1" from="description">Login prompt</note>
+      </trans-unit>
+      <trans-unit id="5248717555542428023" datatype="html">
+        <source>Username</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/auth/login.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+        <note priority="1" from="description">Username</note>
+      </trans-unit>
+      <trans-unit id="1431416938026210429" datatype="html">
+        <source>Password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/auth/login.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+        <note priority="1" from="description">Password</note>
+      </trans-unit>
+      <trans-unit id="931252989873527145" datatype="html">
+        <source>Remember me</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/auth/login.component.html</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+        <note priority="1" from="description">Remember me</note>
+      </trans-unit>
+      <trans-unit id="3035570095838445091" datatype="html">
+        <source> Forgot password? </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/auth/login.component.html</context>
+          <context context-type="linenumber">46,48</context>
+        </context-group>
+        <note priority="1" from="description">Forgot password</note>
+      </trans-unit>
+      <trans-unit id="1279436968600180950" datatype="html">
+        <source> CONTINUE </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/auth/login.component.html</context>
+          <context context-type="linenumber">52,54</context>
+        </context-group>
+        <note priority="1" from="description">CONTINUE</note>
+      </trans-unit>
+      <trans-unit id="639894176160665198" datatype="html">
+        <source> @ 2023 - Powered by GFA B.I.S </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/auth/login.component.html</context>
+          <context context-type="linenumber">71,73</context>
+        </context-group>
+        <note priority="1" from="description">Footer GFA copyright text</note>
+        <note priority="1" from="meaning">Copyright text</note>
+      </trans-unit>
+      <trans-unit id="5358224425319353527" datatype="html">
+        <source>Search dossier</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dossier/dossier.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4469707026469855990" datatype="html">
+        <source><x id="START_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="a"/> add <x id="CLOSE_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;/mat-icon&gt;"/> NEW DOSSIER </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dossier/dossier.component.html</context>
+          <context context-type="linenumber">28,30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3984219948553054197" datatype="html">
+        <source> DATE </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dossier/dossier.component.html</context>
+          <context context-type="linenumber">49,50</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6117095069870459105" datatype="html">
+        <source> APPLICATION NR </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dossier/dossier.component.html</context>
+          <context context-type="linenumber">69,70</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6446397981235354730" datatype="html">
+        <source> SOURCE OF FUNDING </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dossier/dossier.component.html</context>
+          <context context-type="linenumber">84,85</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7317862172436611655" datatype="html">
+        <source> STATUS </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dossier/dossier.component.html</context>
+          <context context-type="linenumber">99,100</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8257953353520177121" datatype="html">
+        <source> REFERENCE TRANSACTION </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dossier/dossier.component.html</context>
+          <context context-type="linenumber">114,115</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2350409679220208415" datatype="html">
+        <source> TOTAL (USD) </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dossier/dossier.component.html</context>
+          <context context-type="linenumber">134,135</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2463808832408462773" datatype="html">
+        <source> TOTAL LOCAL (USD) </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dossier/dossier.component.html</context>
+          <context context-type="linenumber">154,155</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5589804444925012184" datatype="html">
+        <source> TIMESTAMP </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dossier/dossier.component.html</context>
+          <context context-type="linenumber">174,175</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1379939487073971161" datatype="html">
+        <source> RECEIVED DATE </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dossier/dossier.component.html</context>
+          <context context-type="linenumber">194,195</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7762219601523723152" datatype="html">
+        <source> DESCRIPTION </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dossier/dossier.component.html</context>
+          <context context-type="linenumber">214,215</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9080946591509644702" datatype="html">
+        <source> STATUS APPROVAL </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dossier/dossier.component.html</context>
+          <context context-type="linenumber">229,230</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9066363131491673245" datatype="html">
+        <source> STATUS APPROVAL REASON </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dossier/dossier.component.html</context>
+          <context context-type="linenumber">244,245</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6309203689523967014" datatype="html">
+        <source> APPROVED DELAY </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dossier/dossier.component.html</context>
+          <context context-type="linenumber">259,260</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7022070615528435141" datatype="html">
+        <source>Delete</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dossier/dossier.component.html</context>
+          <context context-type="linenumber">304</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5584056678560135924" datatype="html">
+        <source> No data<x id="INTERPOLATION" equiv-text="{{
+                  isFiltering
+                    ? &apos; matching the filter &quot;&apos; + filterControl.value + &apos;&quot;&apos;
+                    : &quot;&quot;
+                }}"/> </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dossier/dossier.component.html</context>
+          <context context-type="linenumber">327,332</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

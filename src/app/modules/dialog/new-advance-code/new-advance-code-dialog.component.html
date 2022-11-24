@@ -1,0 +1,41 @@
+<h2 mat-dialog-title>New Advance Code</h2>
+<form
+  [formGroup]="form"
+  mat-dialog-content
+  class="flex flex-col space-y-4 h-full overflow-y-auto max-h-[70vh] !py-5"
+>
+  <div class="grid grid-cols-2 gap-8">
+    <mat-form-field class="w-full" appearance="outline">
+      <mat-label>Analysis Code</mat-label>
+      <input matInput formControlName="code" />
+      <mat-error *ngIf="f['code'].hasError('required')"
+        >Analysis code is required</mat-error
+      >
+    </mat-form-field>
+  </div>
+  <mat-form-field class="w-full" appearance="outline">
+    <mat-label>Description</mat-label>
+    <textarea matInput formControlName="description"></textarea>
+
+    <mat-error *ngIf="f['description'].hasError('required')"
+      >Description is required</mat-error
+    >
+  </mat-form-field>
+</form>
+
+<mat-dialog-actions [align]="'end'" class="flex space-x-8 items-center justify-end">
+  <button mat-flat-button matDialogClose>Cancel</button>
+  <button
+    mat-flat-button
+    color="primary"
+    (click)="onAdd()"
+    [disabled]="loading || form.invalid"
+  >
+    <mat-spinner
+      *ngIf="loading"
+      [diameter]="25"
+      class="my-1 mx-auto"
+    ></mat-spinner>
+    <span *ngIf="!loading">Add</span>
+  </button>
+</mat-dialog-actions>
